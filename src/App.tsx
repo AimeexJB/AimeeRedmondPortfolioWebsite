@@ -15,11 +15,12 @@ const skills = [
   ['04', 'Performance-minded', 'Lean builds, deliberate assets and a practical eye on the experience at every connection speed.'],
 ]
 
-function Icon({ name, size = 20 }: { name: 'sun' | 'moon' | 'arrow' | 'menu' | 'close' | 'github' | 'external'; size?: number }) {
+function Icon({ name, size = 20 }: { name: 'sun' | 'moon' | 'arrow' | 'up' | 'menu' | 'close' | 'github' | 'external'; size?: number }) {
   const common = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true }
   if (name === 'sun') return <svg {...common}><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
   if (name === 'moon') return <svg {...common}><path d="M20.6 15.7A9 9 0 0 1 8.3 3.4 9 9 0 1 0 20.6 15.7Z"/></svg>
   if (name === 'arrow') return <svg {...common}><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  if (name === 'up') return <svg {...common}><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   if (name === 'menu') return <svg {...common}><path d="M4 7h16M4 12h16M4 17h16"/></svg>
   if (name === 'close') return <svg {...common}><path d="m6 6 12 12M18 6 6 18"/></svg>
   if (name === 'github') return <svg {...common}><path d="M15 22v-3.87c.04-.51-.1-1.01-.4-1.42 2.75-.31 5.64-1.35 5.64-6.12a4.8 4.8 0 0 0-1.28-3.32 4.47 4.47 0 0 0-.12-3.28s-1.04-.33-3.41 1.27a11.77 11.77 0 0 0-6.21 0C6.85 3.66 5.81 4 5.81 4A4.47 4.47 0 0 0 5.7 7.27a4.8 4.8 0 0 0-1.29 3.33c0 4.76 2.89 5.8 5.64 6.11-.3.4-.43.91-.4 1.42V22"/><path d="M9 19c-2.4.74-2.4-1.2-3.36-1.5"/></svg>
@@ -31,7 +32,10 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [repos, setRepos] = useState<Repo[]>(fallbackProjects)
   const [selectedProject, setSelectedProject] = useState<Repo | null>(null)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  const [contactInView, setContactInView] = useState(false)
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const contactRef = useRef<HTMLElement>(null)
 
   useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('theme', theme) }, [theme])
   useEffect(() => {
@@ -41,6 +45,19 @@ function App() {
       .catch(() => undefined)
   }, [])
   useEffect(() => { if (selectedProject) dialogRef.current?.showModal(); else dialogRef.current?.close() }, [selectedProject])
+  useEffect(() => {
+    const updateBackToTop = () => setShowBackToTop(window.scrollY > window.innerHeight * 0.75)
+    updateBackToTop()
+    window.addEventListener('scroll', updateBackToTop, { passive: true })
+    return () => window.removeEventListener('scroll', updateBackToTop)
+  }, [])
+  useEffect(() => {
+    const contact = contactRef.current
+    if (!contact) return
+    const observer = new IntersectionObserver(([entry]) => setContactInView(entry.isIntersecting), { threshold: 0.1 })
+    observer.observe(contact)
+    return () => observer.disconnect()
+  }, [])
 
   const closeMenu = () => setMenuOpen(false)
   const nav = ['About', 'Skills', 'Work', 'Contact']
@@ -69,8 +86,8 @@ function App() {
             <div><h1 id="hero-title">Building thoughtful<br/><em>digital experiences.</em></h1><p className="hero__intro">Hi, I’m Aimee. I turn ideas into accessible, engaging websites with clarity, curiosity and a love for the small details.</p><a className="button button--primary" href="#work">Explore my work <Icon name="arrow" size={18}/></a></div>
             <div className="portrait-wrap" aria-label="Decorative profile illustration"><div className="portrait"><div className="portrait__shine"/><span>A</span><p>creative<br/>developer</p></div><div className="orbit orbit--one"/><div className="orbit orbit--two"/><p className="portrait-caption">Based in the UK<br/><b>Available for new ideas</b></p></div>
           </div>
-          <a className="scroll-cue" href="#about"><span>Scroll to discover</span><i/></a>
         </div>
+        <a className="scroll-cue" href="#about"><span>Scroll to discover</span><i/></a>
       </section>
 
       <section className="about section container" id="about" aria-labelledby="about-title">
@@ -84,8 +101,10 @@ function App() {
 
       <section className="process section"><div className="container"><div className="process__inner"><div><div className="section-label">04 / My approach</div><h2>Curious by default.<br/><em>Intentional by design.</em></h2></div><ol><li><span>01</span><div><h3>Listen &amp; explore</h3><p>Start with the people, the problem and the possibilities.</p></div></li><li><span>02</span><div><h3>Make it clear</h3><p>Build a useful, accessible foundation before adding the flourish.</p></div></li><li><span>03</span><div><h3>Refine with care</h3><p>Test the details, then keep making the experience feel better.</p></div></li></ol></div></div></section>
 
-      <section className="contact section container" id="contact" aria-labelledby="contact-title"><div className="contact__top"><div className="section-label">05 / Contact</div><p>Have an opportunity, an idea, or simply fancy a chat?</p></div><h2 id="contact-title">Let’s make something<br/><em>worth using.</em></h2><a className="email-link" href="mailto:hello@aimeeredmond.com">hello@aimeeredmond.com <Icon name="arrow" size={24}/></a><div className="contact__bottom"><p>© {new Date().getFullYear()} Aimee Redmond</p><a href="#top">Back to top ↑</a></div></section>
+      <section className="contact section container" id="contact" aria-labelledby="contact-title" ref={contactRef}><div className="contact__top"><div className="section-label">05 / Contact</div><p>Have an opportunity, an idea, or simply fancy a chat?</p></div><h2 id="contact-title">Let’s make something<br/><em>worth using.</em></h2><a className="email-link" href="mailto:hello@aimeeredmond.com">hello@aimeeredmond.com <Icon name="arrow" size={24}/></a><div className="contact__bottom"><p>© {new Date().getFullYear()} Aimee Redmond</p><a href="#top">Back to top ↑</a></div></section>
     </main>
+
+    <a className={`back-to-top ${showBackToTop && !contactInView ? 'is-visible' : ''}`} href="#top" aria-label="Back to top"><Icon name="up" size={21}/><span>Top</span></a>
 
     <dialog className="project-dialog" ref={dialogRef} aria-labelledby="dialog-title" onClose={() => setSelectedProject(null)}>{selectedProject && <div className="dialog-content"><button className="dialog-close" type="button" onClick={() => setSelectedProject(null)}><Icon name="close"/><span className="sr-only">Close project details</span></button><div className="dialog-art"><span>{selectedProject.name.slice(0, 1).toUpperCase()}</span></div><div className="dialog-copy"><p className="eyebrow">{selectedProject.language || 'Web project'} · GitHub repository</p><h2 id="dialog-title">{selectedProject.name.replace(/[-_]/g, ' ')}</h2><p>{selectedProject.description || 'An in-progress project from my GitHub portfolio. Explore the repository for the latest work and documentation.'}</p>{selectedProject.topics?.length ? <ul className="tags">{selectedProject.topics.slice(0, 4).map((topic) => <li key={topic}>{topic}</li>)}</ul> : null}<div className="dialog-actions"><a className="button button--primary" href={selectedProject.html_url} target="_blank" rel="noreferrer">View code <Icon name="github" size={17}/></a>{selectedProject.homepage && <a className="text-link" href={selectedProject.homepage} target="_blank" rel="noreferrer">Visit live site <Icon name="external" size={17}/></a>}</div></div></div>}</dialog>
   </>
