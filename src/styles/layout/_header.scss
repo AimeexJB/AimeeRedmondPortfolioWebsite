@@ -1,0 +1,14 @@
+.site-header { position:absolute; inset:0 0 auto; z-index:5; width:min(100% - 2.5rem,1180px); height:5.25rem; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+.brand { font-size:1.48rem; font-weight:800; letter-spacing:-.1em; }
+.brand span { color:var(--accent); }
+nav { display:none; }
+.menu-button { display:grid; place-items:center; padding:.45rem; border:0; background:none; color:var(--ink); }
+.theme-toggle { display:flex; gap:.15rem; margin-left:auto; margin-right:.5rem; padding:.25rem; border:1px solid var(--line); border-radius:99px; background:var(--card); color:var(--muted); }
+.theme-toggle span { display:grid; width:1.8rem; height:1.8rem; place-items:center; border-radius:50%; }
+.theme-toggle .active.sun { color:#e98b21; background:#fff4dc; }
+.theme-toggle .active.moon { color:#fff; background:#3c3b4b; }
+.nav-github { display:flex; align-items:center; gap:.4rem; }
+
+@media (max-width:959px) { nav.is-open { position:absolute; top:4.4rem; left:0; right:0; display:flex; flex-direction:column; align-items:flex-start; gap:1.2rem; padding:1.4rem; border:1px solid var(--line); background:var(--card); box-shadow:0 1rem 2rem rgba(0,0,0,.1); font-weight:700; } }
+@media (min-width:700px) { .site-header { width:min(100% - 5rem,1180px); } }
+@media (min-width:960px) { .site-header { height:6rem; } .menu-button { display:none; } nav { position:absolute; left:50%; display:flex; align-items:center; gap:1.7rem; transform:translateX(-50%); font-size:.8rem; font-weight:700; } nav a { position:relative; } nav a:not(.nav-github)::after { position:absolute; bottom:-.35rem; left:0; width:100%; height:1px; content:''; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .2s; } nav a:hover::after { transform:scaleX(1); } .nav-github { display:none; } .theme-toggle { margin-left:auto; margin-right:0; } }

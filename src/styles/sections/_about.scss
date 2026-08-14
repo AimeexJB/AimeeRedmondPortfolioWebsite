@@ -1,0 +1,6 @@
+.about { border-top:1px solid var(--line); }
+.about__content { display:grid; gap:2rem; }
+.about__content h2 { max-width:9.5em; }
+.about__content p { color:var(--muted); font-size:1rem; }
+.about__content .text-link { margin-top:.75rem; }
+@media (min-width:700px) { .about__content { grid-template-columns:1.25fr .75fr; gap:5rem; } }

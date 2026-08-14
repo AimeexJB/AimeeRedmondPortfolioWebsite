@@ -1,0 +1,7 @@
+.button { display:inline-flex; align-items:center; gap:.8rem; padding:.9rem 1.05rem; border:1px solid var(--ink); font-size:.83rem; font-weight:700; transition:transform .2s, background .2s, color .2s; }
+.button:hover { transform:translate(-3px,-3px); }
+.button--primary { background:var(--ink); color:var(--surface); }
+.button--secondary { background:transparent; }
+.text-link { display:inline-flex; align-items:center; gap:.5rem; padding-bottom:.2rem; border-bottom:1px solid var(--ink); font-size:.87rem; font-weight:700; }
+.back-to-top { position:fixed; right:1.25rem; bottom:1.25rem; z-index:4; display:flex; align-items:center; gap:.45rem; padding:.7rem .85rem; border:1px solid var(--line); background:var(--card); color:var(--ink); box-shadow:0 .45rem 1.5rem rgba(0,0,0,.18); font-size:.72rem; font-weight:800; opacity:0; pointer-events:none; transform:translateY(1rem); transition:opacity .2s, transform .2s; }
+.back-to-top.is-visible { opacity:1; pointer-events:auto; transform:translateY(0); }

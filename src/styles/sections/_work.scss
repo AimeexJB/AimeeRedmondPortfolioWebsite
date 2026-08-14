@@ -1,0 +1,20 @@
+.work__top { display:grid; gap:1.75rem; margin-bottom:3rem; }
+.work__top p { max-width:22rem; align-self:end; color:var(--muted); }
+.projects-grid { display:grid; gap:1rem; margin-bottom:2rem; }
+.project-card { border:1px solid var(--line); background:var(--card); }
+.project-card button { width:100%; padding:0; border:0; background:transparent; color:inherit; text-align:left; }
+.project-card__visual { position:relative; display:flex; height:13rem; align-items:center; justify-content:center; overflow:hidden; isolation:isolate; background:#d7d4ff; }
+.project-card--1 .project-card__visual { background:#bfabdf; }
+.project-card--2 .project-card__visual { background:#aab6ed; }
+.project-card__visual::before { position:absolute; top:-4rem; right:-3rem; width:13rem; height:13rem; border:1px solid rgba(255,255,255,.7); border-radius:50%; content:''; }
+.project-card__visual::after { position:absolute; z-index:-1; width:10rem; height:10rem; border-radius:2rem 6rem 2rem 6rem; background:linear-gradient(135deg,rgba(255,255,255,.35),transparent); content:''; transform:rotate(-25deg); }
+.project-card__number { position:absolute; top:1rem; left:1rem; font:500 .7rem 'DM Mono',monospace; }
+.project-card__monogram { color:rgba(32,26,61,.67); font:600 5.8rem 'Playfair Display',serif; }
+.project-card__arrow { position:absolute; right:1rem; bottom:1rem; display:grid; width:2.5rem; height:2.5rem; place-items:center; border-radius:50%; background:var(--ink); color:var(--surface); transition:transform .25s; }
+.project-card button:hover .project-card__arrow { transform:rotate(-35deg); }
+.project-card__info { padding:1.2rem; }
+.project-card__info p { margin-bottom:.5rem; color:var(--muted); font:500 .66rem 'DM Mono',monospace; text-transform:uppercase; }
+.project-card__info h3 { margin-bottom:.9rem; font-size:1.2rem; text-transform:capitalize; }
+.project-card__info > span { border-bottom:1px solid var(--ink); font-size:.75rem; font-weight:700; }
+@media (min-width:700px) { .work__top { grid-template-columns:1fr .55fr; } .projects-grid { grid-template-columns:repeat(2,1fr); } .project-card__visual { height:16rem; } }
+@media (min-width:960px) { .projects-grid { grid-template-columns:repeat(3,1fr); } .work .button--secondary { margin-top:4rem; } }

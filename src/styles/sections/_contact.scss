@@ -1,0 +1,6 @@
+.contact { padding-bottom:2rem; }
+.contact__top { display:flex; flex-direction:column; gap:.3rem; margin-bottom:2.2rem; }
+.contact__top p { max-width:15rem; color:var(--muted); font-size:.9rem; }
+.email-link { display:inline-flex; max-width:max-content; align-items:center; gap:.7rem; margin-top:2.3rem; padding-bottom:.25rem; border-bottom:2px solid var(--accent); font-size:clamp(1.15rem,3vw,2rem); font-weight:700; letter-spacing:-.04em; }
+.contact__bottom { display:flex; justify-content:space-between; margin-top:5.5rem; padding-top:1.3rem; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; }
+.contact__bottom p { margin:0; }
