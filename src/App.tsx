@@ -17,8 +17,16 @@ type Theme = 'light' | 'dark'
 // Filter it out by name so it doesn't show up as one of the featured "projects".
 const PORTFOLIO_REPO_NAME = 'AimeeRedmondPortfolioWebsite'
 
+// localStorage can hold anything (old versions, manual edits), so only trust the
+// stored value if it's exactly one of our two themes; otherwise use the OS setting.
+function getInitialTheme(): Theme {
+  const stored = localStorage.getItem('theme')
+  if (stored === 'light' || stored === 'dark') return stored
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 function App() {
-  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('theme') as Theme) || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+  const [theme, setTheme] = useState<Theme>(getInitialTheme)
   const [menuOpen, setMenuOpen] = useState(false)
   const [repos, setRepos] = useState<Repo[]>(fallbackProjects)
   const [selectedProject, setSelectedProject] = useState<Repo | null>(null)

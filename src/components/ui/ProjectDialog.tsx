@@ -8,7 +8,22 @@ type ProjectDialogProps = {
   onClose: () => void
 }
 
+// Only allow http(s) links. Blocks things like `javascript:` URLs from ever
+// reaching an href, even if a repo's homepage field contained one.
+function safeHttpUrl(value: string | null): string | null {
+  if (!value) return null
+  try {
+    const url = new URL(value)
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null
+  } catch {
+    return null
+  }
+}
+
 export function ProjectDialog({ dialogRef, project, onClose }: ProjectDialogProps) {
+  const repoUrl = safeHttpUrl(project?.html_url ?? null)
+  const homepageUrl = safeHttpUrl(project?.homepage ?? null)
+
   return <dialog className="project-dialog" ref={dialogRef} aria-labelledby="dialog-title" onClose={onClose}>
     {project && <div className="dialog-content">
       <button className="dialog-close" type="button" onClick={onClose}><Icon name="close"/><span className="sr-only">Close project details</span></button>
@@ -19,8 +34,8 @@ export function ProjectDialog({ dialogRef, project, onClose }: ProjectDialogProp
         <p>{project.description || 'An in-progress project from my GitHub portfolio. Explore the repository for the latest work and documentation.'}</p>
         {project.topics?.length ? <ul className="tags">{project.topics.slice(0, 4).map((topic) => <li key={topic}>{topic}</li>)}</ul> : null}
         <div className="dialog-actions">
-          <a className="button button--primary" href={project.html_url} target="_blank" rel="noreferrer">View code <Icon name="github" size={17}/></a>
-          {project.homepage && <a className="text-link" href={project.homepage} target="_blank" rel="noreferrer">Visit live site <Icon name="external" size={17}/></a>}
+          {repoUrl && <a className="button button--primary" href={repoUrl} target="_blank" rel="noreferrer">View code <Icon name="github" size={17}/></a>}
+          {homepageUrl && <a className="text-link" href={homepageUrl} target="_blank" rel="noreferrer">Visit live site <Icon name="external" size={17}/></a>}
         </div>
       </div>
     </div>}
