@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#f8f8fc" />
+  <!-- Outlined AR. wordmark keeps the brand independent of installed fonts. -->
+  <path fill="#17172a" fill-rule="evenodd" d="M5 45 14 19h6l9 26h-6l-1.8-5.5h-9.4L10 45Zm8.4-10.5h6.2L16.5 25ZM30 45V19h11c6.3 0 10 3.2 10 8.5 0 3.8-1.9 6.4-5.2 7.6L52 45h-6.6L40 36h-4.2v9Zm5.8-14h5c2.9 0 4.4-1.2 4.4-3.5S43.7 24 40.8 24h-5Z" />
+  <circle cx="56" cy="42" r="3" fill="#665cf6" />
+</svg>
