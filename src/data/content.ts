@@ -2,13 +2,7 @@ import type { Repo } from '../types/project'
 
 export const navigationItems = ['About', 'Skills', 'Work', 'Contact']
 
-export const skills = [
-  ['01', 'Accessible front-end', 'Semantic HTML, keyboard-first interactions, sensible focus states and inclusive experiences.'],
-  ['02', 'Interface craft', 'Thoughtful layouts, responsive systems and polished details that make a product feel considered.'],
-  ['03', 'Modern JavaScript', 'React, Vue, TypeScript and component architecture built to stay easy to evolve.'],
-  ['04', 'Performance-minded', 'Lean builds, deliberate assets and a practical eye on the experience at every connection speed.'],
-]
-
+// Shown if the GitHub feed is switched on but GitHub can't be reached.
 export const fallbackProjects: Repo[] = [
   {
     id: 1,

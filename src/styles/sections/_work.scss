@@ -18,3 +18,6 @@
 .project-card__info > span { border-bottom:1px solid var(--ink); font-size:.75rem; font-weight:700; }
 @media (min-width:700px) { .work__top { grid-template-columns:1fr .55fr; } .projects-grid { grid-template-columns:repeat(2,1fr); } .project-card__visual { height:16rem; } }
 @media (min-width:960px) { .projects-grid { grid-template-columns:repeat(3,1fr); } .work .button--secondary { margin-top:4rem; } }
+.project-card__image { position:absolute; inset:0; z-index:-1; width:100%; height:100%; object-fit:cover; }
+.project-card__visual:has(.project-card__image)::before, .project-card__visual:has(.project-card__image)::after { display:none; }
+.project-card__visual:has(.project-card__image) .project-card__number { padding:.2rem .45rem; background:var(--card); color:var(--ink); }

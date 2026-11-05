@@ -1,14 +1,13 @@
-const processSteps = [
-  ['01', 'Listen & explore', 'Start with the people, the problem and the possibilities.'],
-  ['02', 'Make it clear', 'Build a useful, accessible foundation before adding the flourish.'],
-  ['03', 'Refine with care', 'Test the details, then keep making the experience feel better.'],
-]
+import type { SiteContent } from '../../types/content'
+import { RichText } from '../ui/RichText'
 
-export function Process() {
+type ProcessProps = { content: SiteContent['process'] }
+
+export function Process({ content }: ProcessProps) {
   return <section className="process section">
     <div className="container"><div className="process__inner">
-      <div><div className="section-label">04 / My approach</div><h2>Curious by default.<br/><em>Intentional by design.</em></h2></div>
-      <ol>{processSteps.map(([number, title, description]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
+      <div><div className="section-label">{content.label}</div><h2><RichText text={content.title}/></h2></div>
+      <ol>{content.steps.map((step, index) => <li key={index}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol>
     </div></div>
   </section>
 }

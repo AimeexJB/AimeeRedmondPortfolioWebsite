@@ -1,0 +1,88 @@
+// Styles for the /admin editor. Uses the site's colour tokens, so it follows light and dark mode.
+
+.cms-button { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:2.6rem; padding:.55rem 1rem; border:1px solid var(--ink); background:var(--ink); color:var(--surface); font-size:.8rem; font-weight:700; white-space:nowrap; }
+.cms-button:disabled { opacity:.45; cursor:not-allowed; }
+.cms-button--ghost { background:transparent; color:var(--ink); }
+.cms-button--link { border-color:transparent; background:transparent; color:var(--muted); text-decoration:underline; text-underline-offset:.2em; }
+label.cms-button { cursor:pointer; }
+.cms-image__actions:has(input:focus-visible) label.cms-button { outline:3px solid var(--focus); outline-offset:3px; }
+
+.cms-login { display:grid; min-height:100svh; place-items:center; padding:1.25rem; }
+.cms-login form { display:grid; width:min(100%,24rem); gap:1.25rem; padding:2rem; border:1px solid var(--line); background:var(--card); }
+.cms-login h1 { margin:0; font-size:2.4rem; letter-spacing:-.04em; }
+.cms-login .eyebrow { margin:0; }
+
+.cms-topbar { position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem 1.5rem; padding:.9rem 1rem; border-bottom:1px solid var(--line); background:var(--surface); }
+.cms-topbar .eyebrow { margin:0 0 .2rem; }
+.cms-topbar__mode { margin:0; color:var(--muted); font-size:.78rem; }
+.cms-topbar__actions { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; }
+
+.cms-status { margin:1rem; padding:.85rem 1rem; border:1px solid var(--line); border-left-width:4px; background:var(--card); font-size:.88rem; }
+.cms-status p { margin:0; }
+.cms-status ul { margin:.5rem 0 0; padding-left:1.2rem; color:var(--muted); font-size:.8rem; }
+.cms-status a { text-decoration:underline; }
+.cms-status .cms-button { margin-top:.75rem; }
+.cms-status--success { border-left-color:#2f9e6b; }
+.cms-status--error { border-left-color:#d64545; }
+.cms-status--info { border-left-color:var(--accent); }
+.cms-status--floating { position:fixed; top:0; right:0; left:0; z-index:5; }
+.cms-login .cms-status { margin:0; }
+
+.cms-layout { display:grid; }
+.cms-nav { display:flex; gap:.25rem; overflow-x:auto; padding:.75rem 1rem; border-bottom:1px solid var(--line); }
+.cms-nav button, .cms-nav a { flex:none; padding:.5rem .75rem; border:0; border-radius:99px; background:transparent; color:var(--muted); font-size:.85rem; font-weight:700; text-align:left; }
+.cms-nav button[aria-current='page'] { background:var(--ink); color:var(--surface); }
+.cms-nav button:hover:not([aria-current='page']) { color:var(--ink); }
+.cms-nav__view { color:var(--accent) !important; }
+
+.cms-form { width:min(100%,46rem); padding:1.5rem 1rem 6rem; }
+.cms-form h1 { margin-bottom:.4rem; font-size:2.2rem; letter-spacing:-.04em; }
+.cms-lede { margin-bottom:2rem; color:var(--muted); }
+.cms-subheading { margin:2.25rem 0 .75rem; font-size:1.05rem; }
+
+.cms-field { display:grid; gap:.4rem; margin-bottom:1.25rem; }
+.cms-field label, .cms-label { color:var(--ink); font-size:.82rem; font-weight:700; }
+.cms-field input:not([type='checkbox'], [type='file']), .cms-field textarea { width:100%; padding:.7rem .8rem; border:1px solid var(--line); border-radius:0; background:var(--card); color:var(--ink); font:inherit; font-size:.95rem; }
+.cms-field textarea { resize:vertical; line-height:1.5; }
+.cms-field input:focus-visible, .cms-field textarea:focus-visible { border-color:var(--accent); outline:2px solid var(--accent); outline-offset:0; }
+.cms-field--narrow input { max-width:8rem; }
+.cms-field--toggle { grid-template-columns:auto 1fr; align-items:center; column-gap:.6rem; }
+.cms-field--toggle input { width:1.15rem; height:1.15rem; accent-color:var(--accent); }
+.cms-field--toggle .cms-hint { grid-column:2; }
+.cms-hint { margin:0; color:var(--muted); font-size:.78rem; }
+.cms-row { display:grid; gap:0 1rem; }
+
+.cms-image { display:flex; flex-wrap:wrap; align-items:center; gap:1rem; }
+.cms-image img, .cms-image__empty { width:7.5rem; height:5.5rem; border:1px solid var(--line); object-fit:cover; }
+.cms-image__empty { display:grid; place-items:center; background:var(--surface-alt); color:var(--muted); font-size:.75rem; }
+.cms-image__actions { display:flex; flex-wrap:wrap; gap:.5rem; }
+
+.cms-list { display:grid; gap:1rem; margin-bottom:1.25rem; }
+.cms-list__item { padding:1rem 1rem .1rem; border:1px solid var(--line); background:var(--card); }
+.cms-list__item .cms-field input:not([type='checkbox'], [type='file']), .cms-list__item .cms-field textarea { background:var(--surface); }
+.cms-list__head { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.cms-list__head h4 { overflow:hidden; margin:0; font-size:.9rem; text-overflow:ellipsis; white-space:nowrap; }
+.cms-list__controls { display:flex; flex:none; gap:.3rem; }
+.cms-icon-button { display:grid; width:2rem; height:2rem; place-items:center; padding:0; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.85rem; }
+.cms-icon-button:disabled { opacity:.35; cursor:not-allowed; }
+.cms-icon-button--danger:hover { border-color:#d64545; color:#d64545; }
+.cms-list > .cms-button { justify-self:start; }
+
+.cms-preview-bar { position:fixed; bottom:1rem; left:50%; z-index:30; display:flex; align-items:center; gap:1rem; padding:.5rem .5rem .5rem 1rem; border:1px solid var(--line); background:var(--card); box-shadow:0 .5rem 2rem rgba(0,0,0,.25); font-size:.82rem; font-weight:700; transform:translateX(-50%); white-space:nowrap; }
+
+@media (min-width:700px) {
+  .cms-topbar { padding:1rem 2rem; }
+  .cms-status { margin:1rem 2rem; }
+  .cms-row { grid-template-columns:1fr 1fr; }
+}
+
+@media (min-width:960px) {
+  .cms-layout { grid-template-columns:14rem 1fr; }
+  .cms-nav { position:sticky; top:4.6rem; flex-direction:column; align-self:start; height:calc(100svh - 4.6rem); padding:1.5rem 1rem; border-right:1px solid var(--line); border-bottom:0; }
+  .cms-nav__view { margin-top:auto; }
+  .cms-form { padding:2.5rem 3rem 6rem; }
+}
+
+// Save messages live in the sticky top bar so they're visible wherever you've scrolled to.
+.cms-topbar .cms-status { position:relative; flex-basis:100%; margin:0; padding-right:2.75rem; }
+.cms-status__close { position:absolute; top:.45rem; right:.45rem; width:2rem; height:2rem; padding:0; border:0; background:transparent; color:var(--muted); }
