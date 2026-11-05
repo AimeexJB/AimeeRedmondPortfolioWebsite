@@ -1,0 +1,84 @@
+{
+  "site": {
+    "name": "Aimee Redmond",
+    "metaTitle": "Aimee Redmond | Front-end developer",
+    "metaDescription": "Aimee Redmond - front-end developer crafting accessible, thoughtful web experiences.",
+    "githubUsername": "AimeexJB",
+    "githubUrl": "https://github.com/AimeexJB"
+  },
+  "hero": {
+    "eyebrow": "Front-end developer & problem solver",
+    "title": "Building thoughtful\n*digital experiences.*",
+    "intro": "Hi, I’m Aimee. I turn ideas into accessible, engaging websites with clarity, curiosity and a love for the small details.",
+    "ctaLabel": "Explore my work",
+    "portraitImage": null,
+    "portraitLetter": "A",
+    "portraitTagline": "creative\ndeveloper",
+    "location": "Based in Tokyo",
+    "availability": "Available for new ideas"
+  },
+  "about": {
+    "label": "01 / About",
+    "title": "A developer who cares about *how it feels* to use the web.",
+    "paragraphs": [
+      "I’m Aimee, a front-end developer with an eye for clean interfaces and a practical, people-first approach to building them. I enjoy the space where thoughtful design and well-crafted code meet.",
+      "Whether I’m shaping a responsive component system or refining a tiny interaction, I’m always asking: is this clear, useful and welcoming for everyone?"
+    ],
+    "ctaLabel": "Let’s work together"
+  },
+  "skills": {
+    "label": "02 / Expertise",
+    "title": "The good stuff\n*I bring to the table.*",
+    "items": [
+      {
+        "title": "Accessible front-end",
+        "body": "Semantic HTML, keyboard-first interactions, sensible focus states and inclusive experiences."
+      },
+      {
+        "title": "Interface craft",
+        "body": "Thoughtful layouts, responsive systems and polished details that make a product feel considered."
+      },
+      {
+        "title": "Modern JavaScript",
+        "body": "React, Vue, TypeScript and component architecture built to stay easy to evolve."
+      },
+      {
+        "title": "Performance-minded",
+        "body": "Lean builds, deliberate assets and a practical eye on the experience at every connection speed."
+      }
+    ]
+  },
+  "work": {
+    "label": "03 / Selected work",
+    "title": "Things I’ve\n*made & learned from.*",
+    "intro": "These projects are pulled directly from GitHub, so this space grows right alongside my work.",
+    "projects": [],
+    "showGithubFeed": true,
+    "githubLimit": 6,
+    "githubLinkLabel": "View all on GitHub"
+  },
+  "process": {
+    "label": "04 / My approach",
+    "title": "Curious by default.\n*Intentional by design.*",
+    "steps": [
+      {
+        "title": "Listen & explore",
+        "body": "Start with the people, the problem and the possibilities."
+      },
+      {
+        "title": "Make it clear",
+        "body": "Build a useful, accessible foundation before adding the flourish."
+      },
+      {
+        "title": "Refine with care",
+        "body": "Test the details, then keep making the experience feel better."
+      }
+    ]
+  },
+  "contact": {
+    "label": "05 / Contact",
+    "intro": "Have an opportunity, an idea, or simply fancy a chat?",
+    "title": "Let’s make something\n*worth using.*",
+    "email": "hello@aimeeredmond.com"
+  }
+}

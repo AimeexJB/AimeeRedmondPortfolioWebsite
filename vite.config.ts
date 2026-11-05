@@ -1,4 +1,16 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { cmsPlugin } from './server/vite-plugin'
 
-export default defineConfig({ plugins: [react()] })
+export default defineConfig({
+  plugins: [react(), cmsPlugin()],
+  build: {
+    rolldownOptions: {
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        admin: resolve(import.meta.dirname, 'admin/index.html'),
+      },
+    },
+  },
+})
