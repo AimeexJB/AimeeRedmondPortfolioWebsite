@@ -14,7 +14,7 @@ export function ProjectDialog({ dialogRef, project, onClose }: ProjectDialogProp
   const liveUrl = safeHttpUrl(project?.liveUrl)
 
   return <dialog className="project-dialog" ref={dialogRef} aria-labelledby="dialog-title" onClose={onClose}>
-    {project && <div className="dialog-content">
+    {project && <div className={`dialog-content${project.image ? ' dialog-content--image' : ''}`}>
       <button className="dialog-close" type="button" onClick={onClose}><Icon name="close"/><span className="sr-only">Close project details</span></button>
       <div className="dialog-art">
         {project.image ? <img src={project.image} alt=""/> : <span>{project.name.slice(0, 1).toUpperCase()}</span>}
