@@ -52,7 +52,18 @@
     "label": "03 / Selected work",
     "title": "Things I’ve\n*made & learned from.*",
     "intro": "These projects are pulled directly from GitHub, so this space grows right alongside my work.",
-    "projects": [],
+    "projects": [
+      {
+        "id": "3103567882-2961668688",
+        "name": "Reeltrack",
+        "category": "Web App",
+        "description": "Track every movie & TV show in one place — TMDB-powered tracker with stats, episode tracking, IMDb/TV Time/Plex import and optional Supabase sync. React + TypeScript + Vite.",
+        "tags": [],
+        "image": null,
+        "codeUrl": "https://github.com/AimeexJB/reeltrack",
+        "liveUrl": "https://www.aimeeredmond.com/reeltracker"
+      }
+    ],
     "showGithubFeed": true,
     "githubLimit": 6,
     "githubLinkLabel": "View all on GitHub"
