@@ -64,7 +64,7 @@
         "liveUrl": "https://www.aimeeredmond.com/reeltracker"
       }
     ],
-    "showGithubFeed": true,
+    "showGithubFeed": false,
     "githubLimit": 6,
     "githubLinkLabel": "View all on GitHub"
   },
