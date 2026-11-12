@@ -112,7 +112,7 @@ function WorkForm({ value, onChange }: FormProps<'work'>) {
           <Field label="Category" value={project.category} onChange={setProject('category')} placeholder="e.g. React, Branding, Web app"/>
           <Field label="Description" value={project.description} multiline rows={4} onChange={setProject('description')}/>
           <TagsField label="Tags" value={project.tags} onChange={setProject('tags')}/>
-          <ImageField label="Image" value={project.image} onChange={setProject('image')} hint="Optional. Without one, the project’s first letter is shown."/>
+          <ImageField label="Image" value={project.image} onChange={setProject('image')} hint="Optional. Shown at 16:9 (e.g. 1600 × 900), so other shapes get trimmed at the edges. Without one, the project’s first letter is shown."/>
           <div className="cms-row">
             <Field label="Code link" type="url" value={project.codeUrl} onChange={setProject('codeUrl')} placeholder="https://github.com/…"/>
             <Field label="Live site link" type="url" value={project.liveUrl} onChange={setProject('liveUrl')} placeholder="https://…"/>
