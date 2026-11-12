@@ -59,7 +59,7 @@
         "category": "Web App",
         "description": "Track every movie & TV show in one place — TMDB-powered tracker with stats, episode tracking, IMDb/TV Time/Plex import and optional Supabase sync. React + TypeScript + Vite.",
         "tags": [],
-        "image": null,
+        "image": "/uploads/reeltrack-thumbnail-123tkq4.webp",
         "codeUrl": "https://github.com/AimeexJB/reeltrack",
         "liveUrl": "https://www.aimeeredmond.com/reeltracker"
       }
