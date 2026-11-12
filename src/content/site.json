@@ -62,6 +62,16 @@
         "image": "/uploads/reeltrack-thumbnail-123tkq4.webp",
         "codeUrl": "https://github.com/AimeexJB/reeltrack",
         "liveUrl": "https://www.aimeeredmond.com/reeltracker"
+      },
+      {
+        "id": "220217858-3758267451",
+        "name": "Spare Me!",
+        "category": "Game",
+        "description": "Spare Me! is a browser bowling game where your only job is three strikes. Every strike brings out Señor Whiskers, a dancing mariachi cat. Every miss sends you to the Department of Human Inconvenience for a nonsense captcha, from whack-a-mole to a checkbox that unticks itself.",
+        "tags": [],
+        "image": "/uploads/deliverable-a-16-9-widescreen-thumbnail--tv4u00.webp",
+        "codeUrl": "https://github.com/AimeexJB/MariachiCatBowling",
+        "liveUrl": "https://aimeeredmond.com/mariachi-bowl/"
       }
     ],
     "showGithubFeed": false,
